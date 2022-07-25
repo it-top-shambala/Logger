@@ -8,7 +8,7 @@ public class LogToConsole : ILogger
         System.Console.WriteLine($"{DateTime.Now:g} {message}");
         System.Console.ResetColor();
     }
-    
+
     public void Info(string message)
     {
         WriteToConsole($"[INFO] {message}", ConsoleColor.Blue);
