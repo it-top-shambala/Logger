@@ -7,7 +7,7 @@ public class LogToFile : ILogger
     private readonly string _path;
 
     #endregion
-    
+
     #region constructors
 
     public LogToFile()
@@ -26,7 +26,7 @@ public class LogToFile : ILogger
 
     private void WriteToFile(string message)
     {
-        using var file = new StreamWriter(_path, append: true);
+        using var file = new StreamWriter(_path, true);
         file.WriteLine($"{DateTime.Now:g} {message}");
     }
 
