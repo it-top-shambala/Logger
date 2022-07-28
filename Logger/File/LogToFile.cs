@@ -4,7 +4,7 @@ public class LogToFile : ILogger
 {
     #region fields
 
-    private readonly string _path;
+    private readonly PathFileConfig _path;
 
     #endregion
 
@@ -12,47 +12,47 @@ public class LogToFile : ILogger
 
     public LogToFile()
     {
-        _path = "journal.log";
+        _path = PathFileConfig.Init("log_paths.json");
     }
 
-    public LogToFile(string path)
+    public LogToFile(string pathToPathConfig)
     {
-        _path = path;
+        _path = PathFileConfig.Init(pathToPathConfig);
     }
 
     #endregion
 
     #region methods
 
-    private void WriteToFile(string message)
+    private void WriteToFile(string path, string message)
     {
-        using var file = new StreamWriter(_path, true);
+        using var file = new StreamWriter(path, true);
         file.WriteLine($"{DateTime.Now:g} {message}");
     }
 
     public void Info(string message)
     {
-        WriteToFile($"[INFO] {message}");
+        WriteToFile(_path.PathInfo, $"[INFO] {message}");
     }
 
     public void Warning(string message)
     {
-        WriteToFile($"[WARNING] {message}");
+        WriteToFile(_path.PathWarning, $"[WARNING] {message}");
     }
 
     public void Error(string message)
     {
-        WriteToFile($"[ERROR] {message}");
+        WriteToFile(_path.PathError, $"[ERROR] {message}");
     }
 
     public void Success(string message)
     {
-        WriteToFile($"[SUCCESS] {message}");
+        WriteToFile(_path.PathSuccess, $"[SUCCESS] {message}");
     }
 
     public void Custom(string type, string message)
     {
-        WriteToFile($"[{type}] {message}");
+        WriteToFile(_path.PathCustom, $"[{type}] {message}");
     }
 
     #endregion
