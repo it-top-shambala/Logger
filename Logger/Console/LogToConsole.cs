@@ -2,6 +2,17 @@
 
 public class LogToConsole : ILogger
 {
+    private readonly ConsoleColorConfig _colors;
+    public LogToConsole()
+    {
+        _colors = ConsoleColorConfig.Init("log_colors.json");
+    }
+
+    public LogToConsole(string pathToColorsConfig)
+    {
+        _colors = ConsoleColorConfig.Init(pathToColorsConfig);
+    }
+    
     private static void WriteToConsole(string message, ConsoleColor color)
     {
         System.Console.ForegroundColor = color;
@@ -11,26 +22,26 @@ public class LogToConsole : ILogger
 
     public void Info(string message)
     {
-        WriteToConsole($"[INFO] {message}", ConsoleColor.Blue);
+        WriteToConsole($"[INFO] {message}", _colors.ColorInfo);
     }
 
     public void Warning(string message)
     {
-        WriteToConsole($"[WARNING] {message}", ConsoleColor.Yellow);
+        WriteToConsole($"[WARNING] {message}", _colors.ColorWarning);
     }
 
     public void Error(string message)
     {
-        WriteToConsole($"[ERROR] {message}", ConsoleColor.Red);
+        WriteToConsole($"[ERROR] {message}", _colors.ColorError);
     }
 
     public void Success(string message)
     {
-        WriteToConsole($"[SUCCESS] {message}", ConsoleColor.Green);
+        WriteToConsole($"[SUCCESS] {message}", _colors.ColorSuccess);
     }
 
     public void Custom(string type, string message)
     {
-        WriteToConsole($"[{type}] {message}", ConsoleColor.Gray);
+        WriteToConsole($"[{type}] {message}", _colors.ColorCustom);
     }
 }
