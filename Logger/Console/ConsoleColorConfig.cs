@@ -37,4 +37,3 @@ public class ConsoleColorConfig
         return JsonSerializer.DeserializeAsync<ConsoleColorConfig>(file).Result;
     }
 }
-

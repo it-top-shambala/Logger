@@ -73,4 +73,3 @@ public class LogToConsole : ILogger
         WriteToConsole($"[{type}] {message}", _colors.ColorCustom);
     }
 }
-
