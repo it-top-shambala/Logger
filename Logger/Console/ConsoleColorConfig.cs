@@ -31,7 +31,6 @@ public class ConsoleColorConfig
     /// </summary>
     /// <param name="path">Путь к файлу конфигурации</param>
     /// <returns>Объект класса ConsoleColorConfig с необходимыми установками цвета текста</returns>
-
     public static ConsoleColorConfig Init(string path)
     {
         using var file = new FileStream(path, FileMode.Open, FileAccess.Read);

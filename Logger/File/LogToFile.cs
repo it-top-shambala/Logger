@@ -5,11 +5,8 @@ namespace Logger.File;
 public class LogToFile : ILogger
 {
     #region fields
-
     private readonly PathFileConfig _path;
-
     #endregion
-
     #region constructors
     /// <summary>
     /// Конструктор (по умолчанию) класса LogToFile который создает объект конфигурации
@@ -26,9 +23,7 @@ public class LogToFile : ILogger
     {
         _path = PathFileConfig.Init(pathToPathConfig);
     }
-
     #endregion
-
     #region methods
     /// <summary>
     /// Статический метод вывода в файл сообщений по принятым параметрам
@@ -81,6 +76,5 @@ public class LogToFile : ILogger
     {
         WriteToFile(_path.PathCustom, $"[{type}] {message}");
     }
-
     #endregion
 }
