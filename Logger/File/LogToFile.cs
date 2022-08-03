@@ -5,18 +5,21 @@ namespace Logger.File;
 public class LogToFile : ILogger
 {
     #region fields
+    /// <summary>
+    /// Приватное свойство конфигурации путей к файлам логирования, только для чтения
+    /// </summary>
     private readonly PathFileConfig _path;
     #endregion
     #region constructors
     /// <summary>
-    /// Конструктор (по умолчанию) класса LogToFile который создает объект конфигурации
+    /// Конструктор, который создает объект конфигурации из файла по умолчанию
     /// </summary>
     public LogToFile()
     {
         _path = PathFileConfig.Init("log_paths.json");
     }
     /// <summary>
-    /// Конструктор (с параметрами) класса LogToFile который принимает путь к файлу конфигурации и создает объект конфигурации 
+    /// Конструктор, который принимает путь к файлу и создает объект конфигурации из него
     /// </summary>
     /// <param name="pathToPathConfig">Путь к файлу конфигурации</param>
     public LogToFile(string pathToPathConfig)
@@ -60,7 +63,7 @@ public class LogToFile : ILogger
         WriteToFile(_path.PathError, $"[ERROR] {message}");
     }
     /// <summary>
-    /// Метод вывода сообщений выполнения
+    /// Метод вывода сообщений успешного выполнения
     /// </summary>
     /// <param name="message">Текст сообщения</param>
     public void Success(string message)

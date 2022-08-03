@@ -4,16 +4,19 @@ namespace Logger.Console;
 /// </summary>
 public class LogToConsole : ILogger
 {
+    /// <summary>
+    /// приватное свойство конфигурации цветов текста, только для чтения
+    /// </summary>
     private readonly ConsoleColorConfig _colors;
     /// <summary>
-    /// Конструктор (по умолчанию) класса LogToConsole который создает объект конфигурации
+    /// Конструктор, который создает объект конфигурации из файла по умолчанию
     /// </summary>
     public LogToConsole()
     {
         _colors = ConsoleColorConfig.Init("log_colors.json");
     }
     /// <summary>
-    /// Конструктор (с параметрами) класса LogToConsole который принимает путь к файлу конфигурации и создает объект конфигурации 
+    /// Конструктор, который принимает путь к файлу и создает объект конфигурации из него
     /// </summary>
     /// <param name="pathToColorsConfig">Путь к файлу конфигурации</param>
     public LogToConsole(string pathToColorsConfig)
@@ -56,7 +59,7 @@ public class LogToConsole : ILogger
         WriteToConsole($"[ERROR] {message}", _colors.ColorError);
     }
     /// <summary>
-    /// Метод вывода в консоль сообщений выполнения
+    /// Метод вывода в консоль сообщений успешного выполнения
     /// </summary>
     /// <param name="message">Текст сообщения</param>
     public void Success(string message)
