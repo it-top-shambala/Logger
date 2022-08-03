@@ -7,23 +7,23 @@ namespace Logger.Console;
 public class ConsoleColorConfig
 {
     /// <summary>
-    /// Метод класса ConsoleColor для определения цвета информационного текста в консоли
+    /// Свойство класса ConsoleColor для определения цвета информационного текста в консоли
     /// </summary>
     public ConsoleColor ColorInfo { get; set; }
     /// <summary>
-    /// Метод класса ConsoleColor для определения цвета текста предупреждений в консоли
+    /// Свойство класса ConsoleColor для определения цвета текста предупреждений в консоли
     /// </summary>
     public ConsoleColor ColorWarning { get; set; }
     /// <summary>
-    /// Метод класса ConsoleColor для определения цвета текста ошибок в консоли
+    /// Свойство класса ConsoleColor для определения цвета текста ошибок в консоли
     /// </summary>
     public ConsoleColor ColorError { get; set; }
     /// <summary>
-    /// Метод класса ConsoleColor для определения цвета текста выполнения в консоли
+    /// Свойство класса ConsoleColor для определения цвета текста успешного выполнения в консоли
     /// </summary>
     public ConsoleColor ColorSuccess { get; set; }
     /// <summary>
-    /// Метод класса ConsoleColor для определения цвета пользовательского текста в консоли
+    /// Свойство класса ConsoleColor для определения цвета пользовательского текста в консоли
     /// </summary>
     public ConsoleColor ColorCustom { get; set; }
     /// <summary>
