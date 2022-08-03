@@ -4,9 +4,6 @@ namespace Logger.Console;
 /// </summary>
 public class LogToConsole : ILogger
 {
-    /// <summary>
-    /// приватное свойство конфигурации цветов текста, только для чтения
-    /// </summary>
     private readonly ConsoleColorConfig _colors;
     /// <summary>
     /// Конструктор, который создает объект конфигурации из файла по умолчанию
@@ -24,7 +21,7 @@ public class LogToConsole : ILogger
         _colors = ConsoleColorConfig.Init(pathToColorsConfig);
     }
     /// <summary>
-    /// Статический метод вывода в консоль сообщений по принятым параметрам
+    /// Статический метод вывода в консоль сообщений по принятым параметрам с указанием даты и времени
     /// </summary>
     /// <param name="message">Текст сообщений</param>
     /// <param name="color">Цвет текста сообщений</param>
