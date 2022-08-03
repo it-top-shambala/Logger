@@ -5,11 +5,14 @@ namespace Logger.File;
 public class LogToFile : ILogger
 {
     #region fields
+    /// <summary>
+    /// Cвойство, объект класса PathFileConfig, только для чтения
+    /// </summary>
     private readonly PathFileConfig _path;
     #endregion
     #region constructors
     /// <summary>
-    /// Конструктор (по умолчанию) класса LogToFile который создает объект конфигурации
+    /// Конструктор (по умолчанию), который создает объект конфигурации из файла
     /// </summary>
     public LogToFile()
     {
@@ -60,7 +63,7 @@ public class LogToFile : ILogger
         WriteToFile(_path.PathError, $"[ERROR] {message}");
     }
     /// <summary>
-    /// Метод вывода сообщений выполнения
+    /// Метод вывода сообщений успешного выполнения
     /// </summary>
     /// <param name="message">Текст сообщения</param>
     public void Success(string message)

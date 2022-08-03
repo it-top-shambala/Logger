@@ -20,7 +20,7 @@ public class PathFileConfig
     /// </summary>
     public string PathError { get; set; }
     /// <summary>
-    /// Свойство хранения пути файла логирования сообщений выполнения
+    /// Свойство хранения пути файла логирования сообщений успешного выполнения
     /// </summary>
     public string PathSuccess { get; set; }
     /// <summary>
