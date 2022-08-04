@@ -6,7 +6,7 @@ public class LogToFile : ILogger
 {
     #region fields
     /// <summary>
-    /// Приватное свойство конфигурации путей к файлам логирования, только для чтения
+    /// Приватная переменная конфигурации путей к файлам логирования, только для чтения
     /// </summary>
     private readonly PathFileConfig _path;
     #endregion

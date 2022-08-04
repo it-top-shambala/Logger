@@ -4,6 +4,9 @@ namespace Logger.Console;
 /// </summary>
 public class LogToConsole : ILogger
 {
+    /// <summary>
+    /// Приватная переменная конфигурации цветов текста в консоли, только для чтения
+    /// </summary>
     private readonly ConsoleColorConfig _colors;
     /// <summary>
     /// Конструктор, который создает объект конфигурации из файла по умолчанию
