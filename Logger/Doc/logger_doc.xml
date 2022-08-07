@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Logger</name>
+    </assembly>
+    <members>
+        <member name="T:Logger.Console.ConsoleColorConfig">
+            <summary>
+                Класс для конфигурирования цвета текста в консоли
+            </summary>
+        </member>
+        <member name="P:Logger.Console.ConsoleColorConfig.ColorInfo">
+            <value>
+                Свойство класса ConsoleColor для определения цвета информационного текста в консоли
+            </value>
+        </member>
+        <member name="P:Logger.Console.ConsoleColorConfig.ColorWarning">
+            <value>
+                Свойство класса ConsoleColor для определения цвета текста предупреждений в консоли
+            </value>
+        </member>
+        <member name="P:Logger.Console.ConsoleColorConfig.ColorError">
+            <value>
+                Свойство класса ConsoleColor для определения цвета текста ошибок в консоли
+            </value>
+        </member>
+        <member name="P:Logger.Console.ConsoleColorConfig.ColorSuccess">
+            <value>
+                Свойство класса ConsoleColor для определения цвета текста успешного выполнения в консоли
+            </value>
+        </member>
+        <member name="P:Logger.Console.ConsoleColorConfig.ColorCustom">
+            <value>
+                Свойство класса ConsoleColor для определения цвета пользовательского текста в консоли
+            </value>
+        </member>
+        <member name="M:Logger.Console.ConsoleColorConfig.Init(System.String)">
+            <summary>
+                Статический метод для определения конфигурации методов из файла
+            </summary>
+            <param name="path">Путь к файлу конфигурации</param>
+            <returns>Объект класса конфигурации с необходимыми установками цвета текста</returns>
+        </member>
+        <member name="T:Logger.Console.LogToConsole">
+            <summary>
+                Класс логирования сообщений в консоль
+            </summary>
+            <inheritdoc cref="T:Logger.ILogger"/>
+        </member>
+        <member name="F:Logger.Console.LogToConsole._colors">
+            <summary>
+                Приватная переменная конфигурации цветов текста в консоли, только для чтения
+            </summary>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.#ctor">
+            <summary>
+                Конструктор, который создает объект конфигурации из файла по умолчанию
+            </summary>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.#ctor(System.String)">
+            <summary>
+                Конструктор, который принимает путь к файлу и создает объект конфигурации из него
+            </summary>
+            <param name="pathToColorsConfig">Путь к файлу конфигурации</param>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.WriteToConsole(System.String,System.ConsoleColor)">
+            <summary>
+                Статический метод вывода в консоль сообщений по принятым параметрам с указанием даты и времени
+            </summary>
+            <param name="message">Текст сообщений</param>
+            <param name="color">Цвет текста сообщений</param>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.Info(System.String)">
+            <summary>
+                Метод вывода в консоль информационных сообщений
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.Warning(System.String)">
+            <summary>
+                Метод вывода в консоль сообщений предупреждения
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.Error(System.String)">
+            <summary>
+                Метод вывода в консоль сообщений ошибок
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.Success(System.String)">
+            <summary>
+                Метод вывода в консоль сообщений успешного выполнения
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.Console.LogToConsole.Custom(System.String,System.String)">
+            <summary>
+                Метод вывода в консоль пользовательских сообщений
+            </summary>
+            <param name="type">Пользовательский тип сообщения</param>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="T:Logger.File.LogToFile">
+            <summary>
+                Класс логирования сообщений в файл
+            </summary>
+            <inheritdoc cref="T:Logger.ILogger"/>
+        </member>
+        <member name="F:Logger.File.LogToFile._path">
+            <summary>
+                Приватная переменная конфигурации путей к файлам логирования, только для чтения
+            </summary>
+        </member>
+        <member name="M:Logger.File.LogToFile.#ctor">
+            <summary>
+                Конструктор, который создает объект конфигурации из файла по умолчанию
+            </summary>
+        </member>
+        <member name="M:Logger.File.LogToFile.#ctor(System.String)">
+            <summary>
+                Конструктор, который принимает путь к файлу и создает объект конфигурации из него
+            </summary>
+            <param name="pathToPathConfig">Путь к файлу конфигурации</param>
+        </member>
+        <member name="M:Logger.File.LogToFile.WriteToFile(System.String,System.String)">
+            <summary>
+                Статический метод вывода в файл сообщений по принятым параметрам
+            </summary>
+            <param name="path">Путь к файлу логирования</param>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.File.LogToFile.Info(System.String)">
+            <summary>
+                Метод вывода информациооных сообщений
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.File.LogToFile.Warning(System.String)">
+            <summary>
+                Метод вывода сообщений предупреждения
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.File.LogToFile.Error(System.String)">
+            <summary>
+                Метод вывода сообщений ошибок
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.File.LogToFile.Success(System.String)">
+            <summary>
+                Метод вывода сообщений успешного выполнения
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.File.LogToFile.Custom(System.String,System.String)">
+            <summary>
+                Метод вывода пользовательских сообщений
+            </summary>
+            <param name="type">Тип сообщений</param>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="T:Logger.File.PathFileConfig">
+            <summary>
+                Класс конфигурирования файлов логирования
+            </summary>
+        </member>
+        <member name="P:Logger.File.PathFileConfig.PathInfo">
+            <value>
+                Свойство хранения пути файла логирования информационных сообщений
+            </value>
+        </member>
+        <member name="P:Logger.File.PathFileConfig.PathWarning">
+            <value>
+                Свойство хранения пути файла логирования сообщений предупреждений
+            </value>
+        </member>
+        <member name="P:Logger.File.PathFileConfig.PathError">
+            <value>
+                Свойство хранения пути файла логирования сообщений ошибок
+            </value>
+        </member>
+        <member name="P:Logger.File.PathFileConfig.PathSuccess">
+            <value>
+                Свойство хранения пути файла логирования сообщений успешного выполнения
+            </value>
+        </member>
+        <member name="P:Logger.File.PathFileConfig.PathCustom">
+            <value>
+                Свойство хранения пути файла логирования пользовательских сообщений
+            </value>
+        </member>
+        <member name="M:Logger.File.PathFileConfig.Init(System.String)">
+            <summary>
+                Статический метод класса PathFileConfig для определения конфигурации методов из файла
+            </summary>
+            <param name="path">Путь к файлу конфигурации</param>
+            <returns>Объект класса конфигурации с устанвленным набором путей к файлам логирования</returns>
+        </member>
+        <member name="T:Logger.ILogger">
+            <summary>
+                Интерфейс для классов журналирования событий
+            </summary>
+        </member>
+        <member name="M:Logger.ILogger.Info(System.String)">
+            <summary>
+                Метод вывода информационных сообщений
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.ILogger.Warning(System.String)">
+            <summary>
+                Метод вывода сообщений предупреждения
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.ILogger.Error(System.String)">
+            <summary>
+                Метод вывода сообщений ошибок
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.ILogger.Success(System.String)">
+            <summary>
+                Метод вывода сообщений успешного выполнения
+            </summary>
+            <param name="message">Текст сообщения</param>
+        </member>
+        <member name="M:Logger.ILogger.Custom(System.String,System.String)">
+            <summary>
+                Метод вывода пользовательских сообщений
+            </summary>
+            <param name="type">Тип пользовательского сообщения</param>
+            <param name="message">Текст сообщения</param>
+        </member>
+    </members>
+</doc>
