@@ -1,7 +1,7 @@
 namespace Logger;
 
 /// <summary>
-/// Интерфейс вывода сообщений
+/// Интерфейс для классов журналирования событий
 /// </summary>
 public interface ILogger
 {

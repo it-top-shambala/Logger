@@ -3,6 +3,7 @@ namespace Logger.File;
 /// <summary>
 /// Класс логирования сообщений в файл
 /// </summary>
+/// <inheritdoc cref="ILogger"/>
 public class LogToFile : ILogger
 {
     #region fields

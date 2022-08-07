@@ -7,36 +7,36 @@ namespace Logger.Console;
 /// </summary>
 public class ConsoleColorConfig
 {
-    /// <summary>
+    /// <value>
     /// Свойство класса ConsoleColor для определения цвета информационного текста в консоли
-    /// </summary>
+    /// </value>
     public ConsoleColor ColorInfo { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство класса ConsoleColor для определения цвета текста предупреждений в консоли
-    /// </summary>
+    /// </value>
     public ConsoleColor ColorWarning { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство класса ConsoleColor для определения цвета текста ошибок в консоли
-    /// </summary>
+    /// </value>
     public ConsoleColor ColorError { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство класса ConsoleColor для определения цвета текста успешного выполнения в консоли
-    /// </summary>
+    /// </value>
     public ConsoleColor ColorSuccess { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство класса ConsoleColor для определения цвета пользовательского текста в консоли
-    /// </summary>
+    /// </value>
     public ConsoleColor ColorCustom { get; set; }
 
     /// <summary>
     /// Статический метод для определения конфигурации методов из файла
     /// </summary>
     /// <param name="path">Путь к файлу конфигурации</param>
-    /// <returns>Объект собственного класса с необходимыми установками цвета текста</returns>
+    /// <returns>Объект класса конфигурации с необходимыми установками цвета текста</returns>
     public static ConsoleColorConfig Init(string path)
     {
         using var file = new FileStream(path, FileMode.Open, FileAccess.Read);

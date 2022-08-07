@@ -3,6 +3,7 @@ namespace Logger.Console;
 /// <summary>
 /// Класс логирования сообщений в консоль
 /// </summary>
+/// <inheritdoc cref="ILogger"/>
 public class LogToConsole : ILogger
 {
     /// <summary>

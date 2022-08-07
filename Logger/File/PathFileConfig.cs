@@ -1,5 +1,4 @@
 using System.Text.Json;
-using Logger.Console;
 
 namespace Logger.File;
 
@@ -8,36 +7,36 @@ namespace Logger.File;
 /// </summary>
 public class PathFileConfig
 {
-    /// <summary>
+    /// <value>
     /// Свойство хранения пути файла логирования информационных сообщений
-    /// </summary>
+    /// </value>
     public string PathInfo { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство хранения пути файла логирования сообщений предупреждений
-    /// </summary>
+    /// </value>
     public string PathWarning { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство хранения пути файла логирования сообщений ошибок
-    /// </summary>
+    /// </value>
     public string PathError { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство хранения пути файла логирования сообщений успешного выполнения
-    /// </summary>
+    /// </value>
     public string PathSuccess { get; set; }
 
-    /// <summary>
+    /// <value>
     /// Свойство хранения пути файла логирования пользовательских сообщений
-    /// </summary>
+    /// </value>
     public string PathCustom { get; set; }
 
     /// <summary>
     /// Статический метод класса PathFileConfig для определения конфигурации методов из файла
     /// </summary>
     /// <param name="path">Путь к файлу конфигурации</param>
-    /// <returns>Объект собственного класса с устанвленным набором путей к файлам логирования</returns>
+    /// <returns>Объект класса конфигурации с устанвленным набором путей к файлам логирования</returns>
     public static PathFileConfig Init(string path)
     {
         using var file = new FileStream(path, FileMode.Open, FileAccess.Read);
