@@ -1,4 +1,5 @@
 namespace Logger.Console;
+
 /// <summary>
 /// Класс логирования сообщений в консоль
 /// </summary>
@@ -8,6 +9,7 @@ public class LogToConsole : ILogger
     /// Приватная переменная конфигурации цветов текста в консоли, только для чтения
     /// </summary>
     private readonly ConsoleColorConfig _colors;
+
     /// <summary>
     /// Конструктор, который создает объект конфигурации из файла по умолчанию
     /// </summary>
@@ -15,6 +17,7 @@ public class LogToConsole : ILogger
     {
         _colors = ConsoleColorConfig.Init("log_colors.json");
     }
+
     /// <summary>
     /// Конструктор, который принимает путь к файлу и создает объект конфигурации из него
     /// </summary>
@@ -23,6 +26,7 @@ public class LogToConsole : ILogger
     {
         _colors = ConsoleColorConfig.Init(pathToColorsConfig);
     }
+
     /// <summary>
     /// Статический метод вывода в консоль сообщений по принятым параметрам с указанием даты и времени
     /// </summary>
@@ -34,6 +38,7 @@ public class LogToConsole : ILogger
         System.Console.WriteLine($"{DateTime.Now:g} {message}");
         System.Console.ResetColor();
     }
+
     /// <summary>
     /// Метод вывода в консоль информационных сообщений
     /// </summary>
@@ -42,6 +47,7 @@ public class LogToConsole : ILogger
     {
         WriteToConsole($"[INFO] {message}", _colors.ColorInfo);
     }
+
     /// <summary>
     /// Метод вывода в консоль сообщений предупреждения
     /// </summary>
@@ -50,6 +56,7 @@ public class LogToConsole : ILogger
     {
         WriteToConsole($"[WARNING] {message}", _colors.ColorWarning);
     }
+
     /// <summary>
     /// Метод вывода в консоль сообщений ошибок
     /// </summary>
@@ -58,6 +65,7 @@ public class LogToConsole : ILogger
     {
         WriteToConsole($"[ERROR] {message}", _colors.ColorError);
     }
+
     /// <summary>
     /// Метод вывода в консоль сообщений успешного выполнения
     /// </summary>
@@ -66,6 +74,7 @@ public class LogToConsole : ILogger
     {
         WriteToConsole($"[SUCCESS] {message}", _colors.ColorSuccess);
     }
+
     /// <summary>
     /// Метод вывода в консоль пользовательских сообщений
     /// </summary>

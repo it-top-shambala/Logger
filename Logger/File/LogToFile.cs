@@ -1,16 +1,21 @@
 namespace Logger.File;
+
 /// <summary>
 /// Класс логирования сообщений в файл
 /// </summary>
 public class LogToFile : ILogger
 {
     #region fields
+
     /// <summary>
     /// Приватная переменная конфигурации путей к файлам логирования, только для чтения
     /// </summary>
     private readonly PathFileConfig _path;
+
     #endregion
+
     #region constructors
+
     /// <summary>
     /// Конструктор, который создает объект конфигурации из файла по умолчанию
     /// </summary>
@@ -18,6 +23,7 @@ public class LogToFile : ILogger
     {
         _path = PathFileConfig.Init("log_paths.json");
     }
+
     /// <summary>
     /// Конструктор, который принимает путь к файлу и создает объект конфигурации из него
     /// </summary>
@@ -26,8 +32,11 @@ public class LogToFile : ILogger
     {
         _path = PathFileConfig.Init(pathToPathConfig);
     }
+
     #endregion
+
     #region methods
+
     /// <summary>
     /// Статический метод вывода в файл сообщений по принятым параметрам
     /// </summary>
@@ -38,6 +47,7 @@ public class LogToFile : ILogger
         using var file = new StreamWriter(path, true);
         file.WriteLine($"{DateTime.Now:g} {message}");
     }
+
     /// <summary>
     /// Метод вывода информациооных сообщений
     /// </summary>
@@ -46,6 +56,7 @@ public class LogToFile : ILogger
     {
         WriteToFile(_path.PathInfo, $"[INFO] {message}");
     }
+
     /// <summary>
     /// Метод вывода сообщений предупреждения
     /// </summary>
@@ -54,6 +65,7 @@ public class LogToFile : ILogger
     {
         WriteToFile(_path.PathWarning, $"[WARNING] {message}");
     }
+
     /// <summary>
     /// Метод вывода сообщений ошибок
     /// </summary>
@@ -62,6 +74,7 @@ public class LogToFile : ILogger
     {
         WriteToFile(_path.PathError, $"[ERROR] {message}");
     }
+
     /// <summary>
     /// Метод вывода сообщений успешного выполнения
     /// </summary>
@@ -70,6 +83,7 @@ public class LogToFile : ILogger
     {
         WriteToFile(_path.PathSuccess, $"[SUCCESS] {message}");
     }
+
     /// <summary>
     /// Метод вывода пользовательских сообщений
     /// </summary>
@@ -79,5 +93,6 @@ public class LogToFile : ILogger
     {
         WriteToFile(_path.PathCustom, $"[{type}] {message}");
     }
+
     #endregion
 }
