@@ -43,6 +43,6 @@ public class PathFileConfig
     public static PathFileConfig Init(string path)
     {
         using var file = new FileStream(path, FileMode.Open, FileAccess.Read);
-        return JsonSerializer.DeserializeAsync<PathFileConfig>(file).Result;
+        return JsonSerializer.Deserialize<PathFileConfig>(file);
     }
 }
