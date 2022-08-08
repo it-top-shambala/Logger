@@ -46,7 +46,7 @@ public class LogToFile : ILogger
     /// </summary>
     /// <param name="path">Путь к файлу логирования</param>
     /// <param name="message">Текст сообщения</param>
-    private void WriteToFile(string path, string message)
+    private static void WriteToFile(string path, string message)
     {
         using var file = new StreamWriter(path, true);
         file.WriteLine($"{DateTime.Now:g} {message}");
@@ -58,7 +58,7 @@ public class LogToFile : ILogger
     /// <param name="message">Текст сообщения</param>
     public void Info(string message)
     {
-        WriteToFile(_path.PathInfo, $"[INFO] {message}");
+        WriteToFile(_path.PathInfo ?? throw new InvalidOperationException(), $"[INFO] {message}");
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ public class LogToFile : ILogger
     /// <param name="message">Текст сообщения</param>
     public void Warning(string message)
     {
-        WriteToFile(_path.PathWarning, $"[WARNING] {message}");
+        WriteToFile(_path.PathWarning ?? throw new InvalidOperationException(), $"[WARNING] {message}");
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public class LogToFile : ILogger
     /// <param name="message">Текст сообщения</param>
     public void Error(string message)
     {
-        WriteToFile(_path.PathError, $"[ERROR] {message}");
+        WriteToFile(_path.PathError ?? throw new InvalidOperationException(), $"[ERROR] {message}");
     }
 
     /// <summary>
@@ -85,7 +85,7 @@ public class LogToFile : ILogger
     /// <param name="message">Текст сообщения</param>
     public void Success(string message)
     {
-        WriteToFile(_path.PathSuccess, $"[SUCCESS] {message}");
+        WriteToFile(_path.PathSuccess ?? throw new InvalidOperationException(), $"[SUCCESS] {message}");
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ public class LogToFile : ILogger
     /// <param name="message">Текст сообщения</param>
     public void Custom(string type, string message)
     {
-        WriteToFile(_path.PathCustom, $"[{type}] {message}");
+        WriteToFile(_path.PathCustom ?? throw new InvalidOperationException(), $"[{type}] {message}");
     }
 
     #endregion

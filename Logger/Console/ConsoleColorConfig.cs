@@ -8,8 +8,22 @@ namespace Logger.Console;
 /// <summary>
 /// Класс для конфигурирования цвета текста в консоли
 /// </summary>
-public class ConsoleColorConfig
+internal class ConsoleColorConfig
 {
+    public ConsoleColorConfig()
+    {
+    }
+
+    public ConsoleColorConfig(ConsoleColor colorInfo, ConsoleColor colorWarning, ConsoleColor colorError,
+        ConsoleColor colorSuccess, ConsoleColor colorCustom)
+    {
+        ColorInfo = colorInfo;
+        ColorWarning = colorWarning;
+        ColorError = colorError;
+        ColorSuccess = colorSuccess;
+        ColorCustom = colorCustom;
+    }
+
     /// <value>
     /// Свойство класса ConsoleColor для определения цвета информационного текста в консоли
     /// </value>
@@ -43,6 +57,6 @@ public class ConsoleColorConfig
     public static ConsoleColorConfig Init(string path)
     {
         using var file = new FileStream(path, FileMode.Open, FileAccess.Read);
-        return JsonSerializer.Deserialize<ConsoleColorConfig>(file);
+        return JsonSerializer.Deserialize<ConsoleColorConfig>(file) ?? throw new InvalidOperationException();
     }
 }
