@@ -43,6 +43,6 @@ public class ConsoleColorConfig
     public static ConsoleColorConfig Init(string path)
     {
         using var file = new FileStream(path, FileMode.Open, FileAccess.Read);
-        return JsonSerializer.DeserializeAsync<ConsoleColorConfig>(file).Result;
+        return JsonSerializer.Deserialize<ConsoleColorConfig>(file);
     }
 }
