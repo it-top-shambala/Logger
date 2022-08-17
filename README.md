@@ -12,7 +12,7 @@
 * **© [Старинин Андрей \(AnSt\)](https://github.com/anst-foto)**
 * **© [Анкушин Алексей](https://github.com/AnkushinAA)**
 * **© [Компьютерная академия TOP (АНО ДПО «Академия Шаг»)](https://github.com/it-top-shambala)**
-* **Лицензия: [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+* **Лицензия: [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)**
 
 ***
 
