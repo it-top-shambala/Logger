@@ -46,7 +46,7 @@ public class LogToFile : ILogger
     /// </summary>
     /// <param name="path">Путь к файлу логирования</param>
     /// <param name="message">Текст сообщения</param>
-    private void WriteToFile(string path, string message)
+    private static void WriteToFile(string path, string message)
     {
         using var file = new StreamWriter(path, true);
         file.WriteLine($"{DateTime.Now:g} {message}");
@@ -56,36 +56,40 @@ public class LogToFile : ILogger
     /// Метод вывода информациооных сообщений
     /// </summary>
     /// <param name="message">Текст сообщения</param>
+    /// <exception cref="InvalidOperationException">Если путь файла для логирования информационных сообщений будет пустой, то произойдёт исключение</exception>
     public void Info(string message)
     {
-        WriteToFile(_path.PathInfo, $"[INFO] {message}");
+        WriteToFile(_path.PathInfo ?? throw new InvalidOperationException(), $"[INFO] {message}");
     }
 
     /// <summary>
     /// Метод вывода сообщений предупреждения
     /// </summary>
     /// <param name="message">Текст сообщения</param>
+    /// <exception cref="InvalidOperationException">Если путь файла для логирования предупреждений будет пустой, то произойдёт исключение</exception>
     public void Warning(string message)
     {
-        WriteToFile(_path.PathWarning, $"[WARNING] {message}");
+        WriteToFile(_path.PathWarning ?? throw new InvalidOperationException(), $"[WARNING] {message}");
     }
 
     /// <summary>
     /// Метод вывода сообщений ошибок
     /// </summary>
     /// <param name="message">Текст сообщения</param>
+    /// <exception cref="InvalidOperationException">Если путь файла для логирования сообщений об ошибках будет пустой, то произойдёт исключение</exception>
     public void Error(string message)
     {
-        WriteToFile(_path.PathError, $"[ERROR] {message}");
+        WriteToFile(_path.PathError ?? throw new InvalidOperationException(), $"[ERROR] {message}");
     }
 
     /// <summary>
     /// Метод вывода сообщений успешного выполнения
     /// </summary>
     /// <param name="message">Текст сообщения</param>
+    /// <exception cref="InvalidOperationException">Если путь файла для логирования сообщений успеха будет пустой, то произойдёт исключение</exception>
     public void Success(string message)
     {
-        WriteToFile(_path.PathSuccess, $"[SUCCESS] {message}");
+        WriteToFile(_path.PathSuccess ?? throw new InvalidOperationException(), $"[SUCCESS] {message}");
     }
 
     /// <summary>
@@ -93,9 +97,10 @@ public class LogToFile : ILogger
     /// </summary>
     /// <param name="type">Тип сообщений</param>
     /// <param name="message">Текст сообщения</param>
+    /// <exception cref="InvalidOperationException">Если путь файла для логирования пользовательских сообщений будет пустой, то произойдёт исключение</exception>
     public void Custom(string type, string message)
     {
-        WriteToFile(_path.PathCustom, $"[{type}] {message}");
+        WriteToFile(_path.PathCustom ?? throw new InvalidOperationException(), $"[{type}] {message}");
     }
 
     #endregion
