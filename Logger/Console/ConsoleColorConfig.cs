@@ -8,8 +8,33 @@ namespace Logger.Console;
 /// <summary>
 /// Класс для конфигурирования цвета текста в консоли
 /// </summary>
-public class ConsoleColorConfig
+internal class ConsoleColorConfig
 {
+    /// <summary>
+    /// Конструктор по умолчанию
+    /// </summary>
+    public ConsoleColorConfig()
+    {
+    }
+
+    /// <summary>
+    /// Конструктор с аргументами
+    /// </summary>
+    /// <param name="colorInfo">Объект класса ConsoleColor для определения цвета информационного текста в консоли</param>
+    /// <param name="colorWarning">Объект класса ConsoleColor для определения цвета текста предупреждений в консоли</param>
+    /// <param name="colorError">Объект класса ConsoleColor для определения цвета текста ошибок в консоли</param>
+    /// <param name="colorSuccess">Объект класса ConsoleColor для определения цвета текста успешного выполнения в консоли</param>
+    /// <param name="colorCustom">Объект класса ConsoleColor для определения цвета пользовательского текста в консоли</param>
+    public ConsoleColorConfig(ConsoleColor colorInfo, ConsoleColor colorWarning, ConsoleColor colorError,
+        ConsoleColor colorSuccess, ConsoleColor colorCustom)
+    {
+        ColorInfo = colorInfo;
+        ColorWarning = colorWarning;
+        ColorError = colorError;
+        ColorSuccess = colorSuccess;
+        ColorCustom = colorCustom;
+    }
+
     /// <value>
     /// Свойство класса ConsoleColor для определения цвета информационного текста в консоли
     /// </value>
@@ -40,9 +65,10 @@ public class ConsoleColorConfig
     /// </summary>
     /// <param name="path">Путь к файлу конфигурации</param>
     /// <returns>Объект класса конфигурации с необходимыми установками цвета текста</returns>
+    /// <exception cref="InvalidOperationException">Исключение выбросится, если резудьтат десериализации будет null</exception>
     public static ConsoleColorConfig Init(string path)
     {
         using var file = new FileStream(path, FileMode.Open, FileAccess.Read);
-        return JsonSerializer.Deserialize<ConsoleColorConfig>(file);
+        return JsonSerializer.Deserialize<ConsoleColorConfig>(file) ?? throw new InvalidOperationException();
     }
 }
