@@ -9,6 +9,28 @@
                 Класс для конфигурирования цвета текста в консоли
             </summary>
         </member>
+        <member name="M:Logger.Console.ConsoleColorConfig.#ctor">
+            <summary>
+                Конструктор по умолчанию
+            </summary>
+        </member>
+        <member name="M:Logger.Console.ConsoleColorConfig.#ctor(System.ConsoleColor,System.ConsoleColor,System.ConsoleColor,System.ConsoleColor,System.ConsoleColor)">
+            <summary>
+                Конструктор с аргументами
+            </summary>
+            <param name="colorInfo">Объект класса ConsoleColor для определения цвета информационного текста в консоли
+            </param>
+            <param name="colorWarning">Объект класса ConsoleColor для определения цвета текста предупреждений в
+                консоли
+            </param>
+            <param name="colorError">Объект класса ConsoleColor для определения цвета текста ошибок в консоли</param>
+            <param name="colorSuccess">Объект класса ConsoleColor для определения цвета текста успешного выполнения в
+                консоли
+            </param>
+            <param name="colorCustom">Объект класса ConsoleColor для определения цвета пользовательского текста в
+                консоли
+            </param>
+        </member>
         <member name="P:Logger.Console.ConsoleColorConfig.ColorInfo">
             <value>
                 Свойство класса ConsoleColor для определения цвета информационного текста в консоли
@@ -40,6 +62,9 @@
             </summary>
             <param name="path">Путь к файлу конфигурации</param>
             <returns>Объект класса конфигурации с необходимыми установками цвета текста</returns>
+            <exception cref="T:System.InvalidOperationException">Исключение выбросится, если резудьтат десериализации
+                будет null
+            </exception>
         </member>
         <member name="T:Logger.Console.LogToConsole">
             <summary>
@@ -135,24 +160,36 @@
                 Метод вывода информациооных сообщений
             </summary>
             <param name="message">Текст сообщения</param>
+            <exception cref="T:System.InvalidOperationException">Если путь файла для логирования информационных
+                сообщений будет пустой, то произойдёт исключение
+            </exception>
         </member>
         <member name="M:Logger.File.LogToFile.Warning(System.String)">
             <summary>
                 Метод вывода сообщений предупреждения
             </summary>
             <param name="message">Текст сообщения</param>
+            <exception cref="T:System.InvalidOperationException">Если путь файла для логирования предупреждений будет
+                пустой, то произойдёт исключение
+            </exception>
         </member>
         <member name="M:Logger.File.LogToFile.Error(System.String)">
             <summary>
                 Метод вывода сообщений ошибок
             </summary>
             <param name="message">Текст сообщения</param>
+            <exception cref="T:System.InvalidOperationException">Если путь файла для логирования сообщений об ошибках
+                будет пустой, то произойдёт исключение
+            </exception>
         </member>
         <member name="M:Logger.File.LogToFile.Success(System.String)">
             <summary>
                 Метод вывода сообщений успешного выполнения
             </summary>
             <param name="message">Текст сообщения</param>
+            <exception cref="T:System.InvalidOperationException">Если путь файла для логирования сообщений успеха будет
+                пустой, то произойдёт исключение
+            </exception>
         </member>
         <member name="M:Logger.File.LogToFile.Custom(System.String,System.String)">
             <summary>
@@ -160,11 +197,29 @@
             </summary>
             <param name="type">Тип сообщений</param>
             <param name="message">Текст сообщения</param>
+            <exception cref="T:System.InvalidOperationException">Если путь файла для логирования пользовательских
+                сообщений будет пустой, то произойдёт исключение
+            </exception>
         </member>
         <member name="T:Logger.File.PathFileConfig">
             <summary>
                 Класс конфигурирования файлов логирования
             </summary>
+        </member>
+        <member name="M:Logger.File.PathFileConfig.#ctor">
+            <summary>
+                Конструктор по умолчанию
+            </summary>
+        </member>
+        <member name="M:Logger.File.PathFileConfig.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+                Конструктор с аргументами
+            </summary>
+            <param name="pathInfo">Путь файла логирования информационных сообщений</param>
+            <param name="pathWarning">Путь файла логирования сообщений предупреждений</param>
+            <param name="pathError">Путь файла логирования сообщений ошибок</param>
+            <param name="pathSuccess">Путь файла логирования сообщений успешного выполнения</param>
+            <param name="pathCustom">Путь файла логирования пользовательских сообщений</param>
         </member>
         <member name="P:Logger.File.PathFileConfig.PathInfo">
             <value>
@@ -197,6 +252,9 @@
             </summary>
             <param name="path">Путь к файлу конфигурации</param>
             <returns>Объект класса конфигурации с устанвленным набором путей к файлам логирования</returns>
+            <exception cref="T:System.InvalidOperationException">Исключение выбросится, если резудьтат десериализации
+                будет null
+            </exception>
         </member>
         <member name="T:Logger.ILogger">
             <summary>

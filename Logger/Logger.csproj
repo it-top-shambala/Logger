@@ -6,6 +6,29 @@
     <Nullable>enable</Nullable>
 
     <DocumentationFile>Doc/logger_doc.xml</DocumentationFile>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <PackageId>Logger_csharp</PackageId>
+    <PackageVersion>0.2</PackageVersion>
+    <Title>Logger</Title>
+    <Description>Библиотека для журналирования (логирования) событий программ.</Description>
+    <Authors>Старинин Андрей; Анкушин Алексей; Компьютерная академия TOP (АНО ДПО «Академия Шаг»)</Authors>
+    <Copyright>© Старинин Андрей (AnSt); © Анкушин Алексей; © Компьютерная академия TOP (АНО ДПО «Академия Шаг»)</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>log;logging;csharp</PackageTags>
+
+    <RepositoryUrl>https://github.com/it-top-shambala/Logger</RepositoryUrl>
+
+    <AssemblyVersion>0.2</AssemblyVersion>
+    <NeutralLanguage>ru</NeutralLanguage>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
