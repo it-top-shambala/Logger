@@ -22,18 +22,24 @@ using Logger.File;
 namespace Logger.DataBase;
 
 /// <summary>
-///
+/// клас конфигурирования базы данных для логирования
 /// </summary>
 public class DataBaseConfig
 {
     /// <summary>
-    /// 
+    /// автосвойство строка подключения к базе данных 
     /// </summary>
     public string? path { get; set; }
+
     /// <summary>
-    ///
+    /// конструктор по умолчанию
     /// </summary>
     public DataBaseConfig() { }
+
+    /// <summary>
+    /// конструктор с параметрами который создает строку подключения к базе данных
+    /// </summary>
+    /// <param name="path">путь к базе данных</param>
     public DataBaseConfig(string path)
     {
         this.path = @$"Data Source={path}";

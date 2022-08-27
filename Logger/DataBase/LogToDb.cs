@@ -22,30 +22,35 @@ using Microsoft.Data.Sqlite;
 namespace Logger.DataBase;
 
 /// <summary>
-///
+/// Класс логирования сообщений в базу данных
 /// </summary>
 public class LogToDb : ILogger
 {
+    #region fields
     /// <summary>
-    /// 
+    /// приватная строка подключения к базе данных, для чтения
     /// </summary>
     private readonly SqliteConnection _db;
     /// <summary>
-    /// 
+    /// приватная переменная пути к базе данных
     /// </summary>
     private DataBaseConfig _Path;
-	/// <summary>
-	///
-	/// </summary>
-	public LogToDb()
+
+    #endregion
+    #region constructor
+    /// <summary>
+    /// конструктор по умолчанию который создает подключение к базе данных
+    /// </summary>
+    public LogToDb()
     {
         _db = new SqliteConnection(_Path.path);
-    }    
+    }
 
-	 #region methods
+    #endregion
+    #region methods
 
     /// <summary>
-    /// Статический метод вывода в файл сообщений по принятым параметрам
+    /// Статический метод вывода в базу данных сообщений по принятым параметрам
     /// </summary>
     /// <param name="path">Путь к файлу логирования</param>
     /// <param name="message">Текст сообщения</param>
@@ -61,7 +66,7 @@ public class LogToDb : ILogger
     /// <exception cref="InvalidOperationException">Если путь файла для логирования информационных сообщений будет пустой, то произойдёт исключение</exception>
     public void Info(string message)
     {
-        WriteToDb(_path.PathInfo ?? throw new InvalidOperationException(), $"[INFO] {message}");
+        
     }
 
     /// <summary>
@@ -71,7 +76,7 @@ public class LogToDb : ILogger
     /// <exception cref="InvalidOperationException">Если путь файла для логирования предупреждений будет пустой, то произойдёт исключение</exception>
     public void Warning(string message)
     {
-        WriteToDb(_path.PathWarning ?? throw new InvalidOperationException(), $"[WARNING] {message}");
+       
     }
 
     /// <summary>
@@ -81,7 +86,7 @@ public class LogToDb : ILogger
     /// <exception cref="InvalidOperationException">Если путь файла для логирования сообщений об ошибках будет пустой, то произойдёт исключение</exception>
     public void Error(string message)
     {
-        WriteToDb(_path.PathError ?? throw new InvalidOperationException(), $"[ERROR] {message}");
+       
     }
 
     /// <summary>
@@ -91,7 +96,7 @@ public class LogToDb : ILogger
     /// <exception cref="InvalidOperationException">Если путь файла для логирования сообщений успеха будет пустой, то произойдёт исключение</exception>
     public void Success(string message)
     {
-        WriteToDb(_path.PathSuccess ?? throw new InvalidOperationException(), $"[SUCCESS] {message}");
+        
     }
 
     /// <summary>
@@ -102,7 +107,7 @@ public class LogToDb : ILogger
     /// <exception cref="InvalidOperationException">Если путь файла для логирования пользовательских сообщений будет пустой, то произойдёт исключение</exception>
     public void Custom(string type, string message)
     {
-        WriteToDb(_path.PathCustom ?? throw new InvalidOperationException(), $"[{type}] {message}");
+       
     }
 
     #endregion
