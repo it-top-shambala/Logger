@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright 2022 Starinin Andrey, Ankushin Alexey, Computer Academy TOP
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +17,8 @@ limitations under the License.
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
 
+using Logger.File;
+
 namespace Logger.DataBase;
 
 /// <summary>
@@ -24,10 +26,16 @@ namespace Logger.DataBase;
 /// </summary>
 public class DataBaseConfig
 {
-	/// <summary>
-	///
-	/// </summary>
-	public DataBaseConfig()
-	{
-	}
+    /// <summary>
+    /// 
+    /// </summary>
+    public string? path { get; set; }
+    /// <summary>
+    ///
+    /// </summary>
+    public DataBaseConfig() { }
+    public DataBaseConfig(string path)
+    {
+        this.path = @$"Data Source={path}";
+    }    
 }
